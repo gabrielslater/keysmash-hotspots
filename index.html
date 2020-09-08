@@ -4,66 +4,134 @@
 <head>
     <style>
         :root {
-            --key-size: 3rem;
+            --key-size: 1rem;
+            --neushadow: 1px;
+            --neulight: -1px;
+            --neublur: 2px;
+            --shadow: rgba(32, 43, 57, 0.3);
+            --light: rgba(253, 249, 238, 1);
         }
 
         body {
-            font-family: 'Open Sans Light', Calibri, 'divebuchet MS', sans-serif
+            background: #D9E5DE;
+            color: #202B39;
+            font-family: 'Open Sans Light', Calibri, 'divebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0.1rem;
+        }
+
+        button {
+            /* border: 1px solid grey; */
+            background-color: transparent;
+            border-radius: 20%;
+            border: 0;
+            box-shadow: var(--neushadow) var(--neushadow) var(--neublur) var(--shadow),
+                var(--neulight) var(--neulight) var(--neublur) var(--light);
+            color: inherit;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0.5rem 0.6rem 0.5rem 0;
+            padding: 1rem;
+            transition: 0.1s;
+        }
+
+        button:hover {
+            background-color: #FDF9EE;
+        }
+
+        button:active,
+        button:focus {
+            box-shadow: inset var(--neushadow) var(--neushadow) var(--neublur) var(--shadow),
+                inset var(--neulight) var(--neulight) var(--neublur) var(--light);
         }
 
         main {
-            margin: 0 auto;
-            width: 70%;
+            width: 90%;
+            margin: 0.5rem auto;
         }
 
         textarea {
-            width: 100%;
-            height: 15rem;
-            font-size: 1.2rem;
+            /* border-radius: 5% 5%; */
+            /* height: 15rem; */
+            background-color: #FDF9EE;
+            border: 0;
+            box-shadow: inset var(--neushadow) var(--neushadow) var(--neublur) var(--shadow),
+                inset var(--neulight) var(--neulight) var(--neublur) var(--light);
+            display: block;
             font-family: 'Courier New', Courier, monospace;
+            margin: 0.3rem 0;
+            padding: 0.3rem;
+            width: 100%;
         }
 
-        #keyboard {
+        .keyboard {
             margin: 0 auto;
         }
 
-        .tilde,
-        .backslash {
-            width: calc(var(--key-size) * 1.5);
-        }
-
-        .backspace,
-        .tab {
-            width: calc(var(--key-size) * 1.75);
-        }
-
-        .caps,
-        .enter {
-            width: calc(var(--key-size) * 2.1);
-        }
-
-        .shift {
-            width: calc(var(--key-size) * 2.75);
-        }
-
         .key {
-            border: 1px solid black;
+            /* border: 1px solid black; */
             background-color: (255, 0, 0, 0);
+            border-radius: 10%;
+            box-shadow: var(--neushadow) var(--neushadow) var(--neublur) var(--shadow),
+                var(--neulight) var(--neulight) var(--neublur) var(--light);
             display: inline-block;
-            font-size: 1.3rem;
-            height: var(--key-size);
-            margin: 0.25rem;
-            padding: 0.5rem;
+            font-weight: bold;
+            height: var(--key-size) * 2;
+            margin: 0.1rem;
+            padding: calc(var(--key-size) / 2);
             text-align: center;
-            text-transform: uppercase;
-        }
-
-        .letter {
+            transition: 0.25s;
             width: var(--key-size);
         }
 
-        .row {
-            margin: auto;
+        @media only screen and (min-width: 600px) {
+            :root {
+                --key-size: 1.5rem;
+                --neushadow: 2px;
+                --neulight: -2px;
+                --neublur: 4px;
+                --shadow: rgba(32, 43, 57, 0.3);
+                --light: rgba(253, 249, 238, 1);
+            }
+
+            .key {
+                height: var(--key-size);
+                width: var(--key-size);
+            }
+
+            .row {
+                margin: 0.3rem auto;
+            }
+
+            main {
+                margin: 0 auto;
+                width: 90%;
+            }
+
+            textarea {
+                font-size: 1.2rem;
+            }
+
+            .key {
+                font-size: 1.3rem;
+                height: var(--key-size);
+                margin: 0.2rem;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            :root {
+                --key-size: 2rem;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            :root {
+                --key-size: 3rem;
+            }
         }
     </style>
 </head>
@@ -71,48 +139,55 @@
 <body>
     <main>
         <button id="clear">clear</button>
-        <button id="stotal">total</button>
+        <!-- <button id="stotal">total</button> -->
         <button id="analyze">analyze</button>
-        <textarea></textarea>
+
+        <br>
+
+        <label for="keysmash">keysmash
+            <textarea name="keysmash" rows="15"></textarea>
+        </label>
 
         <div id="keyboard">
+            <span class="row">
+                <div class="q key">q</div>
+                <div class="w key">w</div>
+                <div class="e key">e</div>
+                <div class="r key">r</div>
+                <div class="t key">t</div>
+                <div class="y key">y</div>
+                <div class="u key">u</div>
+                <div class="i key">i</div>
+                <div class="o key">o</div>
+                <div class="p key">p</div>
+            </span>
 
-            <div class="row">
-                <div class="q key letter">q</div>
-                <div class="w key letter">w</div>
-                <div class="e key letter">e</div>
-                <div class="r key letter">r</div>
-                <div class="t key letter">t</div>
-                <div class="y key letter">y</div>
-                <div class="u key letter">u</div>
-                <div class="i key letter">i</div>
-                <div class="o key letter">o</div>
-                <div class="p key letter">p</div>
-            </div>
+            <br>
 
-            <div class="row">
-                <div class="a key letter">a</div>
-                <div class="s key letter">s</div>
-                <div class="d key letter">d</div>
-                <div class="f key letter">f</div>
-                <div class="g key letter">g</div>
-                <div class="h key letter">h</div>
-                <div class="j key letter">j</div>
-                <div class="k key letter">k</div>
-                <div class="l key letter">l</div>
-            </div>
+            <span class="row">
+                <div class="a key">a</div>
+                <div class="s key">s</div>
+                <div class="d key">d</div>
+                <div class="f key">f</div>
+                <div class="g key">g</div>
+                <div class="h key">h</div>
+                <div class="j key">j</div>
+                <div class="k key">k</div>
+                <div class="l key">l</div>
+            </span>
 
-            <div class="row">
-                <div class="z key letter">z</div>
-                <div class="x key letter">x</div>
-                <div class="c key letter">c</div>
-                <div class="v key letter">v</div>
-                <div class="b key letter">b</div>
-                <div class="n key letter">n</div>
-                <div class="m key letter">m</div>
-            </div>
+            <br>
+
+            <span class="row">
+                <div class="z key">z</div>
+                <div class="x key">x</div>
+                <div class="c key">c</div>
+                <div class="v key">v</div>
+                <div class="b key">b</div>
+                <div class="n key">n</div>
+                <div class="m key">m</div>
+            </span>
         </div>
-
     </main>
 </body>
 
