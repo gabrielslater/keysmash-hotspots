@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        :root {
+            --key-size: 3rem;
+        }
+
+        body {
+            font-family: 'Open Sans Light', Calibri, 'divebuchet MS', sans-serif
+        }
+
+        main {
+            margin: 0 auto;
+            width: 70%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 15rem;
+            font-size: 1.2rem;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #keyboard {
+            margin: 0 auto;
+        }
+
+        .tilde,
+        .backslash {
+            width: calc(var(--key-size) * 1.5);
+        }
+
+        .backspace,
+        .tab {
+            width: calc(var(--key-size) * 1.75);
+        }
+
+        .caps,
+        .enter {
+            width: calc(var(--key-size) * 2.1);
+        }
+
+        .shift {
+            width: calc(var(--key-size) * 2.75);
+        }
+
+        .key {
+            border: 1px solid black;
+            background-color: (255, 0, 0, 0);
+            display: inline-block;
+            font-size: 1.3rem;
+            height: var(--key-size);
+            margin: 0.25rem;
+            padding: 0.5rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .letter {
+            width: var(--key-size);
+        }
+
+        .row {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <button id="clear">clear</button>
+        <button id="stotal">total</button>
+        <button id="analyze">analyze</button>
+        <textarea></textarea>
+
+        <div id="keyboard">
+
+            <div class="row">
+                <div class="q key letter">q</div>
+                <div class="w key letter">w</div>
+                <div class="e key letter">e</div>
+                <div class="r key letter">r</div>
+                <div class="t key letter">t</div>
+                <div class="y key letter">y</div>
+                <div class="u key letter">u</div>
+                <div class="i key letter">i</div>
+                <div class="o key letter">o</div>
+                <div class="p key letter">p</div>
+            </div>
+
+            <div class="row">
+                <div class="a key letter">a</div>
+                <div class="s key letter">s</div>
+                <div class="d key letter">d</div>
+                <div class="f key letter">f</div>
+                <div class="g key letter">g</div>
+                <div class="h key letter">h</div>
+                <div class="j key letter">j</div>
+                <div class="k key letter">k</div>
+                <div class="l key letter">l</div>
+            </div>
+
+            <div class="row">
+                <div class="z key letter">z</div>
+                <div class="x key letter">x</div>
+                <div class="c key letter">c</div>
+                <div class="v key letter">v</div>
+                <div class="b key letter">b</div>
+                <div class="n key letter">n</div>
+                <div class="m key letter">m</div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="main.js" defer></script>
+
+</html>
